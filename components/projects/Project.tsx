@@ -5,16 +5,25 @@ import {
   ProjectInfo,
   ProjectTech,
   ProjectLinks,
-  ProjectLink
+  ProjectLink,
+  ProjectPreview,
+  ProjectPreviewContent
 } from './Projects.style'
 import { useInView } from 'react-intersection-observer'
-import { useAnimation } from 'framer-motion'
-import { useEffect } from 'react'
+import { useAnimation, AnimatePresence } from 'framer-motion'
+import { useEffect, useState } from 'react'
 import { variants } from '../../utils/variants'
 import { Lead } from '../../styles/utils'
-interface ProjectProps {}
+import { customEase } from '../../utils/customEase'
+import { ContentfulProject } from '../../types/Project'
 
-export const Project: React.FC<ProjectProps> = ({}) => {
+interface ProjectProps {
+  item: ContentfulProject
+}
+
+export const Project: React.FC<ProjectProps> = ({ item }) => {
+  const [showPreview, setShowPreview] = useState(false)
+  const [videoLoaded, setVideoLoaded] = useState(false)
   const [projectRef, inView] = useInView({
     triggerOnce: true,
     rootMargin: '-300px'
@@ -27,36 +36,77 @@ export const Project: React.FC<ProjectProps> = ({}) => {
     }
   }, [animation, inView])
 
+  const {
+    fields: {
+      demoUrl,
+      descriptionDetailed,
+      githubRepo,
+      img,
+      preview,
+      subTitle,
+      techUsed,
+      title
+    }
+  } = item
+
+  const techUsedArr = techUsed.split(',')
+
   return (
     <_Project ref={projectRef}>
       <ProjectTitle animate={animation} initial='hidden' variants={variants}>
-        Musician's Home
-        <span>- housing website</span>
+        {title}
+        <span>- {subTitle}</span>
       </ProjectTitle>
-      <ProjectImage backgroundImage='https://dustinkiselbach.dev/img/musicians-home.png' />
+      <ProjectImage backgroundImage={img.fields.file.url} />
+      <AnimatePresence>
+        {showPreview && (
+          <>
+            <ProjectPreview
+              initial={{ scale: 0, y: 150, borderRadius: 2000 }}
+              animate={{ scale: 1, y: 0, borderRadius: 0 }}
+              exit={{ scale: 0, y: 150, borderRadius: 2000 }}
+              transition={{ duration: 0.2, ease: customEase }}
+            >
+              <i
+                style={{ color: 'white' }}
+                className='fas fa-times'
+                onClick={() => setShowPreview(false)}
+              />
+              <ProjectPreviewContent
+                autoPlay
+                muted
+                loop
+                videoLoaded={videoLoaded}
+                onLoadedData={() => setVideoLoaded(true)}
+              >
+                <source src={preview.fields.file.url} type='video/mp4' />
+              </ProjectPreviewContent>
+            </ProjectPreview>
+          </>
+        )}
+      </AnimatePresence>
       <ProjectInfo>
         <ProjectTech>
-          ReactJS &bull; SCSS &bull; AmazonS3 &bull; NodeJS &bull; ExpressJs
+          {techUsedArr.map(
+            tech =>
+              tech + (tech === techUsedArr[techUsedArr.length - 1] ? '' : ' - ')
+          )}
         </ProjectTech>
-        <Lead>
-          A fullstack website made for finding housing with other musicians.
-          Renters can filter listings by location and find a place in the
-          neighborhood of their choice. You can create your own listings and
-          upload images, which are handled by Amazon S3. The backend is built
-          with NodeJS, Express JS, and mongoDb, and the frontend is built with
-          ReactJS, and SCSS. This website was built and designed entirely by
-          Dustin.
-        </Lead>
+        <Lead>{descriptionDetailed}</Lead>
         <ProjectLinks>
-          <ProjectLink>
+          <ProjectLink
+            href={githubRepo}
+            target='_blank'
+            rel='noopener noreferrer'
+          >
             <i className='fab fa-github' />
             <label>code</label>
           </ProjectLink>
-          <ProjectLink>
+          <ProjectLink onClick={() => setShowPreview(true)}>
             <i className='far fa-play-circle' />
             <label>preview</label>
           </ProjectLink>
-          <ProjectLink>
+          <ProjectLink href={demoUrl} target='_blank' rel='noopener noreferrer'>
             <i className='fas fa-laptop' />
             <label>demo</label>
           </ProjectLink>

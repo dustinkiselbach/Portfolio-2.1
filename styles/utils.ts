@@ -8,6 +8,7 @@ export const TitleSecondary = styled.h2`
 `
 export const Lead = styled.p`
   line-height: 1.6rem;
+  color: ${color => color.theme.colors.colorTextMuted};
 `
 export const Container = styled.div`
   padding: 2rem 1rem;

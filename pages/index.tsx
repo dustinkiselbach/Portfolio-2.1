@@ -4,6 +4,9 @@ import { useState, useEffect } from 'react'
 import { NavBar } from '../components/navbar/NavBar'
 import { About } from '../components/about/About'
 import { Projects } from '../components/projects/Projects'
+import { ContentfulProject } from '../types/Project'
+import { Contact } from '../components/contact/Contact'
+const contentful = require('contentful')
 
 function debounce (fn: () => void, ms: number) {
   let timer: number
@@ -16,7 +19,11 @@ function debounce (fn: () => void, ms: number) {
   }
 }
 
-const Home: React.FC = () => {
+interface HomeProps {
+  items: ContentfulProject[]
+}
+
+const Home: React.FC<HomeProps> = ({ items }) => {
   const [showMenu, setShowMenu] = useState(false)
   const [height, setHeight] = useState(500)
 
@@ -54,9 +61,27 @@ const Home: React.FC = () => {
       <NavBar showMenu={showMenu} />
       <Hero setShowMenu={setShowMenu} />
       <About />
-      <Projects />
+      <Projects items={items} />
+      <Contact />
     </>
   )
+}
+
+export async function getStaticProps () {
+  const client = contentful.createClient({
+    space: process.env.CONTENTFUL_SPACE,
+    accessToken: process.env.ACCESS_TOKEN
+  })
+
+  const res = await client.getEntries()
+
+  const items = res.items
+
+  return {
+    props: {
+      items
+    }
+  }
 }
 
 export default Home

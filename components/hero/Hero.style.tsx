@@ -66,6 +66,7 @@ export const HeroText = styled.div`
   transform: translate(-50%, -50%);
   z-index: 2;
   overflow: hidden;
+  pointer-events: none;
 `
 export const HeroTextTitle = styled(motion.h1)`
   font-size: 4rem;
@@ -80,6 +81,7 @@ export const HeroSubtext = styled.div`
   transform: translate(-50%, 200%);
   z-index: 2;
   overflow: hidden;
+  pointer-events: none;
 `
 
 export const HeroTextSubtitle = styled(motion.h2)`

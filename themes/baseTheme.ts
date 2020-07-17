@@ -8,6 +8,7 @@ export const baseTheme: DefaultTheme = {
     colorSecondaryLight: '#334129',
     colorBeige: '#d4c4b6',
     colorBlack: '#121212',
-    colorText: '#edf2f7'
+    colorText: '#edf2f7',
+    colorTextMuted: '#7d7d7d'
   }
 }

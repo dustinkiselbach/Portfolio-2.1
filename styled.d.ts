@@ -10,6 +10,7 @@ declare module 'styled-components' {
       colorSecondary: string
       colorSecondaryLight: string
       colorText: string
+      colorTextMuted: string
       colorBlack: string
       colorBeige
     }

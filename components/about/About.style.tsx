@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const _About = styled.section`
   background-color: ${props => props.theme.colors.colorBlack};
-  color: ${props => props.theme.colors.colorBeige};
+  color: ${props => props.theme.colors.colorTextMuted};
   display: flex;
   align-items: center;
   justify-content: center;
