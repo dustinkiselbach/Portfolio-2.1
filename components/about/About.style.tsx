@@ -14,4 +14,10 @@ export const AboutText = styled.p`
   text-align: center;
   width: 33.33333%;
   line-height: 1.6rem;
+  @media (max-width: 900px) {
+    width: 50%;
+  }
+  @media (max-width: 600px) {
+    width: 75%;
+  }
 `

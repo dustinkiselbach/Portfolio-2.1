@@ -26,15 +26,18 @@ interface HomeProps {
 const Home: React.FC<HomeProps> = ({ items }) => {
   const [showMenu, setShowMenu] = useState(false)
   const [height, setHeight] = useState(500)
+  const [width, setWidth] = useState(500)
 
   useEffect(() => {
     setHeight(window.innerHeight)
+    setWidth(window.innerWidth)
 
     let vh = height * 0.01
     document.documentElement.style.setProperty('--vh', `${vh}px`)
 
     const debouncedHandleResize = debounce(function handleResize () {
       setHeight(window.innerHeight)
+      setWidth(window.innerWidth)
     }, 1000)
 
     window.addEventListener('resize', debouncedHandleResize)
@@ -58,7 +61,7 @@ const Home: React.FC<HomeProps> = ({ items }) => {
           rel='stylesheet'
         />
       </Head>
-      <NavBar showMenu={showMenu} />
+      <NavBar showMenu={showMenu} width={width} />
       <Hero setShowMenu={setShowMenu} />
       <About />
       <Projects items={items} />

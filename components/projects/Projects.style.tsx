@@ -11,6 +11,19 @@ export const _Project = styled.div`
   position: relative;
   display: flex;
   margin: 5rem 10rem;
+
+  @media (max-width: 1100px) {
+    margin: 3rem 6rem;
+  }
+  @media (max-width: 800px) {
+    flex-direction: column;
+    margin: 4rem 2rem;
+    height: 650px;
+  }
+  @media (max-width: 600px) {
+    margin: 2rem 1rem;
+  }
+
   box-shadow: 0 1rem 2rem rgba(18, 18, 18, 0.7);
   height: 30rem;
 `
@@ -23,6 +36,16 @@ export const ProjectTitle = styled(motion.h1)`
   margin-left: -75px;
   display: flex;
   flex-direction: column;
+  @media (max-width: 800px) {
+    top: 0;
+    left: 1px;
+    margin-left: 0;
+    margin-top: -33px;
+    pointer-events: none;
+  }
+  @media (max-width: 600px) {
+    left: 1rem;
+  }
   span {
     margin-top: 1rem;
     font-size: 0.9rem;
@@ -39,6 +62,11 @@ export const ProjectImage = styled.div<{ backgroundImage: string }>`
   background-repeat: none;
   width: 50%;
   height: 100%;
+
+  @media (max-width: 800px) {
+    width: 100%;
+    height: 50%;
+  }
 `
 
 export const ProjectInfo = styled.div`
@@ -47,6 +75,13 @@ export const ProjectInfo = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  @media (max-width: 1100px) {
+    padding: 2rem;
+  }
+  @media (max-width: 800px) {
+    width: 100%;
+    height: 50%;
+  }
 `
 export const ProjectTech = styled.h3`
   margin-bottom: 2rem;
@@ -88,6 +123,12 @@ export const ProjectPreview = styled(motion.div)`
   width: 50%;
   height: 100%;
   z-index: 2;
+  @media (max-width: 800px) {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 100;
+  }
 
   i {
     color: ${props => props.theme.colors.colorBlack};

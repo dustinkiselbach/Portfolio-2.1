@@ -16,6 +16,21 @@ export const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
         -webkit-font-smoothing: antialiased;
         font-size: 16px; 
+
+        @media (min-width: 1600px) {
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 1200px) {
+            font-size: 0.9rem;
+        }
+
+        
+        @media (max-width: 900px) {
+            font-size: 0.8rem;
+        }
+
+        
     }
 
 

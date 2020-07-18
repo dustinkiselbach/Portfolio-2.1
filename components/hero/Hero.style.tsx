@@ -14,7 +14,7 @@ export const Header = styled.header`
   );
   background-size: cover;
   background-position: center;
-  padding: 1rem;
+  /* padding: 1rem; */
   position: relative;
   overflow: hidden;
 `
@@ -67,11 +67,19 @@ export const HeroText = styled.div`
   z-index: 2;
   overflow: hidden;
   pointer-events: none;
+  @media (max-width: 900px) {
+    width: 100%;
+    text-align: center;
+  }
 `
 export const HeroTextTitle = styled(motion.h1)`
   font-size: 4rem;
   font-weight: 400;
   letter-spacing: 0.05rem;
+  @media (max-width: 400px) {
+    font-size: 3rem;
+    text-align: center;
+  }
 `
 
 export const HeroSubtext = styled.div`
