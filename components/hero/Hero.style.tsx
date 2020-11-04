@@ -59,6 +59,20 @@ export const HeroVidContent = styled.video`
   object-fit: cover;
 `
 
+export const _HeroImg = styled(motion.div)`
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  opacity: 0;
+  overflow: hidden;
+  background-image: url('./hero-img.jpg');
+  background-position: center center;
+  transition: opacity 2s ease-in-out;
+`
+
 export const HeroText = styled.div`
   position: absolute;
   top: 50%;
