@@ -50,7 +50,7 @@ const Home: React.FC<HomeProps> = ({ items }) => {
   return (
     <>
       <Head>
-        <title>Create Next App</title>
+        <title>Dustin Kiselbach</title>
         <link rel='icon' href='/favicon.ico' />
         <link
           href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800'

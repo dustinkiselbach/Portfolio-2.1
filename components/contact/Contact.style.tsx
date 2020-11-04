@@ -21,4 +21,11 @@ export const ContactList = styled.ul`
   i {
     margin-right: 0.5rem;
   }
+  a {
+    transition: all 0.2s ease-in;
+    color: ${props => props.theme.colors.colorTextMuted};
+    &:hover {
+      color: white;
+    }
+  }
 `

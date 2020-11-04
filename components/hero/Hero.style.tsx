@@ -73,12 +73,16 @@ export const HeroText = styled.div`
   }
 `
 export const HeroTextTitle = styled(motion.h1)`
-  font-size: 4rem;
+  font-size: 5rem;
+
   font-weight: 400;
   letter-spacing: 0.05rem;
+  @media (max-width: 1250px) {
+    font-size: 4rem;
+  }
+
   @media (max-width: 400px) {
     font-size: 3rem;
-    text-align: center;
   }
 `
 
@@ -86,7 +90,7 @@ export const HeroSubtext = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, 200%);
+  transform: translate(-50%, 300%);
   z-index: 2;
   overflow: hidden;
   pointer-events: none;

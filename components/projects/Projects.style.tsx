@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 
 export const _Projects = styled.section`
   background-color: ${props => props.theme.colors.colorPrimary};
+  background-image: linear-gradient(rgb(18, 18, 18), rgba(52, 106, 122) 25%);
   display: flex;
   flex-direction: column;
 `
@@ -18,7 +19,7 @@ export const _Project = styled.div`
   @media (max-width: 800px) {
     flex-direction: column;
     margin: 4rem 2rem;
-    height: 650px;
+    height: auto;
   }
   @media (max-width: 600px) {
     margin: 2rem 1rem;
@@ -36,6 +37,7 @@ export const ProjectTitle = styled(motion.h1)`
   margin-left: -75px;
   display: flex;
   flex-direction: column;
+
   @media (max-width: 800px) {
     top: 0;
     left: 1px;
@@ -46,6 +48,10 @@ export const ProjectTitle = styled(motion.h1)`
   @media (max-width: 600px) {
     left: 1rem;
   }
+  @media (max-width: 400px) {
+    margin-top: -25px;
+    font-size: 3rem;
+  }
   span {
     margin-top: 1rem;
     font-size: 0.9rem;
@@ -55,7 +61,7 @@ export const ProjectTitle = styled(motion.h1)`
 `
 
 export const ProjectImage = styled.div<{ backgroundImage: string }>`
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
     url(${props => props.backgroundImage});
   background-position: center;
   background-size: cover;
@@ -66,6 +72,7 @@ export const ProjectImage = styled.div<{ backgroundImage: string }>`
   @media (max-width: 800px) {
     width: 100%;
     height: 50%;
+    height: 300px;
   }
 `
 
@@ -116,7 +123,7 @@ export const ProjectLink = styled.a`
   }
 `
 export const ProjectPreview = styled(motion.div)`
-  background-color: white;
+  background-color: ${props => props.theme.colors.colorBlack};
   position: absolute;
   top: 0;
   right: 0;

@@ -9,10 +9,14 @@ export const Contact: React.FC<ContactProps> = ({}) => {
       <h1>Contact me</h1>
       <ContactList>
         <li>
-          <i className='fas fa-phone'></i> 940-642-8235
+          <a href='tel:940-642-8235'>
+            <i className='fas fa-phone'></i>940-642-8235
+          </a>
         </li>
         <li>
-          <i className='far fa-envelope'></i> dustinkiselbach@gmail.com
+          <a href='mailto:dustinkiselbach@gmail.com'>
+            <i className='far fa-envelope'></i>dustinkiselbach@gmail.com
+          </a>
         </li>
       </ContactList>
     </_Contact>
