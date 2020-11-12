@@ -8,7 +8,7 @@ export const About: React.FC<AboutProps> = ({}) => {
     <_About id='about'>
       <AboutText>
         I'm a Full Stack Developer based in New York City. I work in TypeScript,
-        Node, Python, and SCSS to make beautiful, function websites and web
+        Node, Python, and SCSS to make beautiful, functional websites and web
         applications. My current stack includes ReactJS, TypeScript, Styled
         Components, Redux, Express, and MongoDB.
       </AboutText>

@@ -25,7 +25,10 @@ export const _Project = styled.div`
     margin: 2rem 1rem;
   }
 
-  box-shadow: 0 1rem 2rem rgba(18, 18, 18, 0.7);
+  box-shadow: 0 0.1rem 0.1rem rgba(0, 0, 0, 0.2),
+    0 0.2rem 0.2rem rgba(0, 0, 0, 0.15), 0 0.4rem 0.4rem rgba(0, 0, 0, 0.1),
+    0 0.8rem 0.8rem rgba(0, 0, 0, 0.05), 0 1.6rem 1.6rem rgba(0, 0, 0, 0.025),
+    0 3.2rem 3.2rem rgba(0, 0, 0, 0.0125);
   height: 30rem;
 `
 export const ProjectTitle = styled(motion.h1)`
@@ -107,9 +110,9 @@ export const ProjectLink = styled.a`
   align-items: center;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
+  color: rgba(255, 255, 255, 0.8);
   &:hover {
-    color: #bcc0c4;
-    transform: translateY(-1px) scale(1.025);
+    color: white;
   }
 
   i {
@@ -120,6 +123,7 @@ export const ProjectLink = styled.a`
   label {
     font-weight: 300;
     text-transform: capitalize;
+    font-size: 1.2rem;
   }
 `
 export const ProjectPreview = styled(motion.div)`

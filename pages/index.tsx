@@ -60,6 +60,19 @@ const Home: React.FC<HomeProps> = ({ items }) => {
           href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'
           rel='stylesheet'
         />
+        <meta property='og:type' content='website' />
+        <meta property='og:image' content='/site-preview.png' key='ogimage' />
+        <meta
+          property='og:site_name'
+          content='Dustin Kiselbach - Web Developer'
+          key='ogsitename'
+        />
+        <meta property='og:title' content='Home' key='ogtitle' />
+        <meta
+          property='og:description'
+          content="Hi, I'm Dustin. I'm a passionate web developer who works in TypeScript, Node, Python, and SCSS to make beautiful, functional websites and web applications."
+          key='ogdesc'
+        />
       </Head>
       <NavBar showMenu={showMenu} width={width} />
       <Hero setShowMenu={setShowMenu} />

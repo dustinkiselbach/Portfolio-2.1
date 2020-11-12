@@ -9,6 +9,6 @@ export const baseTheme: DefaultTheme = {
     colorBeige: '#d4c4b6',
     colorBlack: '#121212',
     colorText: '#edf2f7',
-    colorTextMuted: '#7d7d7d'
+    colorTextMuted: 'rgba(255,255,255,.72)'
   }
 }

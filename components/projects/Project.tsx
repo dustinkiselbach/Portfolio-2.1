@@ -26,7 +26,7 @@ export const Project: React.FC<ProjectProps> = ({ item }) => {
   const [videoLoaded, setVideoLoaded] = useState(false)
   const [projectRef, inView] = useInView({
     triggerOnce: true,
-    rootMargin: '-180px'
+    rootMargin: '-150px'
   })
   const animation = useAnimation()
 
