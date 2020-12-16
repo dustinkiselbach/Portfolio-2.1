@@ -59,7 +59,7 @@ export const Hero: React.FC<HeroProps> = ({ setShowMenu }) => {
             onAnimationComplete={() => setShowMenu(true)}
             href='#projects'
           >
-            Projects
+            See My Projects
           </Button>
         </HeaderBottom>
       </HeroText>

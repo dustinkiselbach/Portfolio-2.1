@@ -96,8 +96,9 @@ export const HeroSubtext = styled.div`
 
 export const HeroTextSubtitle = styled(motion.h2)`
   font-size: 1.2rem;
-  font-weight: 300;
+  font-weight: 400;
   text-transform: uppercase;
+  letter-spacing: 0.1rem;
 `
 export const Button = styled(motion.a)`
   display: flex;
@@ -106,7 +107,7 @@ export const Button = styled(motion.a)`
   text-align: center;
   border: 2px solid rgba(255, 255, 255, 0.9);
   padding: 0.9rem 2rem;
-  border-radius: 2px;
+
   &:hover {
     @media (min-width: 900px) {
       background-color: rgba(255, 255, 255, 0.9);
